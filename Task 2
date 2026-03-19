@@ -1,0 +1,21 @@
+// Любевич Нікіта 101 група (4 варіант) 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float f(float x, float y) {
+    return (x*x + x*y - y*y) / (1 + x + y) + (x - y) / (x*x + y*y + 2);
+}
+
+int main(int argc, char *argv[]) {
+    float a, b, u;
+    printf("Введіть значення a та b: "); 
+    scanf("%f %f", &a, &b);
+    
+    u = f(0.5, a) + f(a + b, a - b);
+    
+    printf("%.3f\n", u);
+    
+    system("PAUSE"); 
+    return 0;
+}
