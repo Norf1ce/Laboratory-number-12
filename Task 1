@@ -1,0 +1,57 @@
+// Любевич Нікіта 101 група (4 варіант) 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// скалярний добуток
+float f(float a[], float b[], int n)
+{
+    float s = 0;            
+    int i;
+    for(i = 0; i < n; i++)  
+        s = s + a[i]*b[i];  
+    return s;             
+}
+
+int main()
+{
+    int n, i, j, k;
+    float X[15][15], Y[15][15];
+    float r[15], c[15];     // рядок і стовпчик
+
+    printf("n = ");
+    scanf("%d", &n);
+
+    // матриця X
+    for(i = 0; i < n; i++)
+        for(j = 0; j < n; j++)
+            scanf("%f", &X[i][j]);
+
+    // Y
+    for(i = 0; i < n; i++)
+    {
+        // рядок
+        for(k = 0; k < n; k++)
+            r[k] = X[i][k];
+
+        for(j = 0; j < n; j++)
+        {
+            // стовпчик
+            for(k = 0; k < n; k++)
+                c[k] = X[k][j];
+
+            Y[i][j] = f(r, c, n); // скалярний добуток
+        }
+    }
+
+    printf("Y:\n");
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+            printf("%6.2f ", Y[i][j]);
+        printf("\n");
+    }
+
+    system("PAUSE");
+    return 0;
+}
